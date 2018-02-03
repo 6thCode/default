@@ -1,0 +1,176 @@
+<!doctype html>
+<html lang="{{ app()->getLocale() }}">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <title>@yield('title')</title>
+
+        <!-- Jquery Lib -->
+        <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script> -->
+        <script src="https://code.jquery.com/jquery-1.12.4.js" crossorigin="anonymous"></script>
+        <!-- Fonts -->
+        <link href="https://fonts.googleapis.com/css?family=Raleway:100,600" rel="stylesheet" type="text/css">
+        <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+        <link rel="stylesheet" type="text/css" href="/css/app.css">
+        <link rel="stylesheet" type="text/css" href="/css/custom.css">
+    </head>
+    <body>
+        <!-- Header Section --> 
+        <header class="header">
+            <!-- Fixed navbar -->
+            <nav class="navbar navbar-default navbar-fixed-top" style="background-color: rgba(255,255,255,0.90);">
+              <div class="container">
+                <div class="navbar-header">
+                  <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                  </button>
+                  <a class="navbar-brand" href="#"><img src="/img/logo.png"></a>
+                </div>
+                <div id="navbar" class="navbar-collapse collapse">
+                    <ul class="nav navbar-nav navbar">
+                        <li><div class="m-btnlink"></div></li>
+                    </ul>
+                    <ul class="nav navbar-nav navbar-right">
+                        @if(Auth::guard('client')->user())
+                            <li><a href="/account/home"><div class="m-btnlink"><i class="fa fa-eye"></i> Check Up</div></a></li>
+                            <li><a href="/account/contact"><div class="m-btnlink"><i class="fa fa-hospital-o"></i> Health Status</div></a></li>
+                            <li><a href="/account/report"><div class="m-btnlink"><i class="fa fa-copy"></i> Reports</div></a></li>
+                            <li><a href="/account/emergency"><div class="m-btnlink"><i class="fa fa-thermometer-4"></i> Emergency</div></a></li>
+                            
+                        
+                            <li class="dropdown">
+                                <a href="javascript:void(0);" class="dropdown-toggle" data-toggle="dropdown">
+                                   <div class="m-btnlink">  {{Auth::guard('client')->user()->name}} <i class="fa fa-angle-down"></i></div>
+                                </a>
+                                <ul class="dropdown-menu">
+                                    <li><a href="/account/dashboard"><div class="m-btnlink"><i class="fa fa-dashboard"></i> Dashboard</div></a></li>
+                                    <li><a href="/account/bills"><div class="m-btnlink"><i class="fa fa-money"></i> Bills </div></a></li>
+                                    <li><a href="/account/setting"><div class="m-btnlink"><i class="fa fa-cog"></i> Setting </div></a></li>
+                                    <li><a href="/account/signout"><div class="m-btnlink"><i class="fa fa-sign-out"></i> Sign-Out</div></a></li>
+                                </ul>
+                            </li>
+
+                        @else
+                            <li><a href="/home"><div class="m-btnlink"><i class="fa fa-home"></i> Home</div></a></li>
+                            <li><a href="/contact"><div class="m-btnlink"><i class="fa fa-envelope"></i> Contact</div></a></li>
+                            <li><a href="/emergency"><div class="m-btnlink"><i class="fa fa-book"></i> Emergency</div></a></li>
+                            <li><a href="/users/form"><div class="m-btnlink-login"><i class="fa fa-lock"></i> Sign In </div></a></li>
+                            <li><a href="/users/form"><div class="m-btnlink-signup"><i class="fa fa-sign-in"></i> Sign Up</div></a></li>
+                        @endif
+                    </ul>
+                </div><!--/.nav-collapse -->
+              </div>
+            </nav>
+        </header>
+        
+        <!-- Main Section -->
+        <section id="main">
+            <br /><br /><br />
+            @yield('contents')
+        </section>
+
+        <!-- Footer Section -->
+        <section id="sub-footer">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12 text-center">
+                        <img src="/img/logo.png" width="60" class="m-img" height="auto"> <span class="m-text">Subscribe to our newsletter</span>
+                        <input type="email" name="" class="m-input" placeholder="Enter your email address">
+                        <button class="btn m-btnlink-signup">Subscribe</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section id="main-footer">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12">
+                        <table class="table m-table">
+                            <thead>
+                                <tr>
+                                    <th>Company</th>
+                                    <th>Top Hospitals</th>
+                                    <th>Top Emergency Wards</th>
+                                    <th>Top Phamarcies</th>
+                                    <th>Top Clinic</th>
+                                    <th>Top Infant Wards</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><a href="/blog">Blog</a></td>
+                                    <td>Lorem ipsum</td>
+                                    <td>Lorem ipsum</td>
+                                    <td>Lorem ipsum</td>
+                                    <td>Lorem ipsum</td>
+                                    <td>Lorem ipsum</td>
+                                </tr>
+                                <tr>
+                                    <td><a href="/about" class="btn-link">About us</a></td>
+                                    <td>Lorem ipsum</td>
+                                    <td>Lorem ipsum</td>
+                                    <td>Lorem ipsum</td>
+                                    <td>Lorem ipsum</td>
+                                    <td>Lorem ipsum</td>
+                                </tr>
+                                <tr>
+                                    <td><a href="/faq" class="btn-link">Press page</a></td>
+                                    <td>Lorem ipsum</td>
+                                    <td>Lorem ipsum</td>
+                                    <td>Lorem ipsum</td>
+                                    <td>Lorem ipsum</td>
+                                    <td>Lorem ipsum</td>
+                                </tr>
+                                <tr>
+                                    <td><a href="/trade" class="btn-link">Trade and Advertising</a></td>
+                                    <td>Lorem ipsum</td>
+                                    <td>Lorem ipsum</td>
+                                    <td>Lorem ipsum</td>
+                                    <td>Lorem ipsum</td>
+                                    <td>Lorem ipsum</td>
+                                </tr>
+                                <tr>
+                                    <td><a href="/terms" class="btn-link">Terms and Conditions</a></td>
+                                    <td>Lorem ipsum</td>
+                                    <td>Lorem ipsum</td>
+                                    <td>Lorem ipsum</td>
+                                    <td>Lorem ipsum</td>
+                                    <td>Lorem ipsum</td>
+                                </tr>
+                                <tr>
+                                    <td><a href="/privacy" class="btn-link">Privacy Policy</a></td>
+                                    <td>Lorem ipsum</td>
+                                    <td>Lorem ipsum</td>
+                                    <td>Lorem ipsum</td>
+                                    <td>Lorem ipsum</td>
+                                    <td>Lorem ipsum</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+            <hr />
+            <footer class="footer">
+                <div class="container">
+                    <div class="row">
+                        <span class="m-socials">
+                            <i class="fa fa-facebook"></i>
+                            <i class="fa fa-twitter"></i>
+                            <i class="fa fa-instagram"></i>
+                        </span>
+                        <span class="pull-right m-footer">&copy; All right reserved {{ date("Y") }} Medhill <span style="margin-left: 15px;"><a href="#top"><i class="fa fa-arrow-up"></i></span></a></span>
+
+                    </div>
+                </div>
+            </footer>
+        </section>
+        <!-- Bootstrap Lib -->
+        <script type="text/javascript" src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    </body>
+</html>
